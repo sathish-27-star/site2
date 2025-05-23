@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<head>
+    <script src="utypecasting.js"/></script>
+</head>
+<script>
+    function btncancel_onclick(){
+        location. href="multiplication.html";
+    }
+    function btnfind_onclick(){
+        var mn=nummn.value;
+        mn=uToInt(mn);
+        nummn.vlaue=mn;
+        var s="";
+        for(let i=1; i<21; i++){
+            s+=i+"x"+mn+"="+(i*mn)+"<br>";
+        }
+        dvop.innerHTML=s;
+
+    }
+</script>
+<table border="1">
+    <tr>
+        <td>MULTIPLICATION TABLE</td>
+    <td>
+        <input ytpe="number" placeholder="1"
+        min="1" max="20" id="nummn"/>
+    </td>
+    
+    
+    </tr>
+
+<tr>
+    <td>
+        <input type="button" value="Cancel" onclick="btncancel_onclick();"/>
+    </td>
+</tr>
+<tr>
+    <td>
+        <input type="button" value="Find" onclick="btnfind_onclick();"/>
+    </td>
+</tr>
+<tr>
+    <td>Result</td>
+    <td>
+        <div id="dvop">
+            wait....
+        </div>
+    </td>
+</tr>
+
+</table>
+
+

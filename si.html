@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<head>
+  <script src="utypecasting.js"></script>
+  <script>
+    function btnfind_onclick() {
+      var p = tbxp.value;
+      var n = tbxn.value;
+      var r = tbxr.value;
+
+      p = uToFloat(p);
+      n = uToFloat(n);
+      r = uToFloat(r);
+
+      var si = tbxpnr.value;
+      si = (p * n * r) / 100;
+      var np = tbxnp.value;
+      np = p + si;
+
+      tbxp.value = p;
+      tbxn.value = n;
+      tbxr.value = r;
+      tbxpnr.value = si;
+      tbxnp.value = np;
+    }
+  </script>
+</head>
+
+<table border="1">
+  <tr>
+    <td>Principal</td>
+    <td>
+      <input type="text" placeholder="0000" id="tbxp" />
+    </td>
+  </tr>
+  <tr>
+    <td>No.of.Months</td>
+    <td>
+      <input type="text" placeholder="0.0" id="tbxn" />
+    </td>
+  </tr>
+  <tr>
+    <td>Rate.of.Interest</td>
+    <td>
+      <input type="text" placeholder="0.0" id="tbxr" />
+    </td>
+  </tr>
+  <tr>
+    <td>Simple Interest</td>
+    <td>
+      <input type="text" placeholder="0.0" id="tbxpnr" readonly="readonly" />
+    </td>
+  </tr>
+  <tr>
+    <td>Net Pay</td>
+    <td>
+      <input type="text" placeholder="0.0" id="tbxnp" readonly="readonly" />
+    </td>
+  </tr>
+
+  <tr>
+    <td>
+      <input type="button" value="Cancel" onclick="location.href='si.html';" />
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <input
+        type="button"
+        value="Find"
+        placeholder="0.0"
+        onclick="btnfind_onclick();"
+      />
+    </td>
+  </tr>
+</table>

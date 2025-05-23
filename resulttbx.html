@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<head>
+  <script src="utypecasting.js"></script>
+
+  <script>
+    function btnFind_onclick() {
+      var rno = numrno.value;
+      var m1 = numm1.value;
+      var m2 = numm2.value;
+
+      rno = uToInt(rn);
+      m1 = uToFloat(m1);
+      m2 = uToFloat(m2);
+      var total = m1 + m2;
+      var avg = total / 2;
+      var result = m1 > 34.4 && m2 > 34.4;
+      numrno.value = rno;
+      numm1.value = m1.toFixed(2);
+      numm2.value = m2.toFixed(2);
+
+      tbxtotal.value = total;
+      tbxavg.value=avg;
+      tbxavg.value = result ? "PASS" : "FAIL";
+    }
+  </script>
+
+  <link href="udf01.css" rel="stylesheet" />
+</head>
+<table border="0">
+  <tr>
+    <td>ROLL NO</td>
+    <td>
+      <input
+        type="number"
+        min="1001"
+        max="9999"
+        id="numrno"
+        placeholder="0000"
+      />
+    </td>
+  </tr>
+  <tr>
+    <td>NAME</td>
+    <td>
+      <input type="text" placeholder="Unknown" />
+    </td>
+  </tr>
+  <tr>
+    <td>MARK 1</td>
+    <td>
+      <input type="number" id="numm1" placeholder="0.0" />
+    </td>
+  </tr>
+  <tr>
+    <td>MARK2</td>
+    <td>
+      <input type="number" id="numm2" placeholder="0.0" />
+    </td>
+  </tr>
+  <tr>
+    <td>TOTAL</td>
+    <td>
+      <input type="text" id="tbxtotal" placeholder="0.0" readonly="readonly" />
+    </td>
+  </tr>
+  <tr>
+    <td>AVERAGE</td>
+    <td>
+      <input type="text" id="tbxavg" placeholder="0.0" readonly="readonly" />
+    </td>
+  </tr>
+  <tr>
+    <td>RESULT</td>
+    <td>
+      <input type="text" id="tbxres" placeholder="FAIL" readonly="readonly" />
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <input
+        type="button"
+        value="CANCEL"
+        onclick="location.href='resulttbx.html';"
+      />
+    </td>
+
+    <td>
+      <input type="button" value="FIND" onclick="btnFind_onclick();" />
+    </td>
+  </tr>
+</table>

@@ -1,0 +1,104 @@
+<head>
+  <link href="udf01.css" rel="stylesheet" />
+
+  <script>
+    function btnfind_onclick() {
+      var sal = tbxsal.value;
+      sal = parseFloat(sal);
+      sal = isNaN(sal) ? 0 : sal;
+      sal = sal < 0 ? 0 : sal;
+      var tax10 = 0,
+        tax20 = 0,
+        tax30 = 0,
+        tottax = 0,
+        np = 0;
+      if (sal > 100000) {
+        tax10 = 25000;
+        tax20 = 100000;
+        tax30 = ((sal - 1000000) * 30) / 100;
+      } else if (sal > 500000) {
+        tax10 = 25000;
+        tax20 = ((sal - 500000) * 20.0) / 100;
+        tax30 = 0;
+      } else if (sal > 250000) {
+        tax10 = ((sal - 250000) * 10.0) / 100;
+        tax20 = 0;
+        tax30 = 0;
+      }
+      tottax = tax10 + tax20 + tax30;
+      np = sal - tottax;
+
+      tbxsal.value = sal.toFixed(2);
+      tbxtax10.value = tax10.toFixed(2);
+      tbxtax20.value = tax20.toFixed(2);
+      tbxtax30.value = tax30.toFixed(2);
+
+      tbxtottax.value = tottax.toFixed(2);
+      tbxnp.value = np.toFixed(2);
+    }
+  </script>
+</head>
+
+<table border="0" width="100%">
+  <caption>
+    Employee Salary Tax
+  </caption>
+  <tr>
+    <td>ID</td>
+    <td>
+      <input type="text" placeholder="0" />
+    </td>
+  </tr>
+  <tr>
+    <td>Name</td>
+    <td>
+      <input type="text" placeholder="unknown" />
+    </td>
+  </tr>
+
+  <tr>
+    <td>Salary</td>
+    <td>
+      <input type="text" placeholder="0.0" id="tbxsal" />
+    </td>
+  </tr>
+  <tr>
+    <td>Tax10%</td>
+    <td>
+      <input type="text" placeholder="0.0" id="tbxtax10" readonly="readonly" />
+    </td>
+  </tr>
+  <tr>
+    <td>Tax20%</td>
+    <td>
+      <input type="text" placeholder="0.0" id="tbxtax20" readonly="readonly" />
+    </td>
+  </tr>
+  <tr>
+    <td>Tax30%</td>
+    <td>
+      <input type="text" placeholder="0.0" id="tbxtax30" readonly="readonly" />
+    </td>
+  </tr>
+
+  <tr>
+    <td>Total Tax</td>
+    <td>
+      <input type="text" placeholder="0.0" id="tbxtottax" readonly="readonly" />
+    </td>
+  </tr>
+  <tr>
+    <td>Net Pay</td>
+    <td>
+      <input type="text" placeholder="0.0" id="tbxnp" readonly="readonly" />
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <input type="button" value="Cancel" onclick="location.href='est.html';" />
+    </td>
+    <td>
+      <input type="button" value="Find" onclick="btnfind_onclick();" />
+    </td>
+  </tr>
+</table>

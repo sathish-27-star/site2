@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<title align="center">EMPLOYEE SALARY ALLOWANANCE</title>
+
+<table border="1" width="100%">
+  <script>
+    function btnFind_onclick() {
+      var sal = tbxsal.value;
+      sal = parseFloat(sal);
+      sal = isNaN(sal) ? 0 : sal;
+      var hra = (sal * 20.0) / 100;
+      var da = (sal * 15.0) / 100;
+      var pf = (sal * 35.0) / 100;
+      var gp = sal + hra + da;
+      var np = gp - pf;
+
+      tbxhra.value = hra;
+      tbxda.value = da;
+      tbxpf.value = pf;
+      tbxgp.value = gp;
+      tbxnp.value = np;
+    }
+  </script>
+  <caption>
+    EMPLOYEE SALARY ALLOWANANCE
+  </caption>
+  <tr>
+    <td>ID</td>
+    <td>
+      <input type="text" id="tbxid" />
+    </td>
+  </tr>
+
+  <tr>
+    <td>NAME</td>
+    <td>
+      <input type="text" id="tbxname" />
+    </td>
+  </tr>
+  <tr>
+    <td>SALARY</td>
+    <td>
+      <input type="text" id="tbxsal" />
+    </td>
+  </tr>
+  <tr>
+    <td>HOUSE RENT ALLOWANCE</td>
+    <td>
+      <input type="text" id="tbxhra" />
+    </td>
+  </tr>
+
+  <tr>
+    <td>DEARNESS ALLOWANCE</td>
+    <td>
+      <input type="text" id="tbxda" />
+    </td>
+  </tr>
+  <tr>
+    <td>PROVIDENT PAY</td>
+    <td>
+      <input type="text" id="tbxpf" />
+    </td>
+  </tr>
+  <tr>
+    <td>GROSS PAY</td>
+    <td>
+      <input type="text" id="tbxgp" />
+    </td>
+  </tr>
+  <tr>
+    <td>NET PAY</td>
+    <td>
+      <input type="text" id="tbxnp" />
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <input type="button" value="CANCEL" />
+    </td>
+    <td>
+      <input type="button" value="FIND" onclick="btnFind_onclick();" />
+    </td>
+  </tr>
+</table>
